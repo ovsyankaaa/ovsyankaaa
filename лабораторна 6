@@ -1,0 +1,50 @@
+import requests
+from collections import Counter
+import re
+from bs4 import BeautifulSoup
+
+link_url = input("Введіть, будь ласка, посилання на сторінку")
+r=requests.get(link_url)
+page = BeautifulSoup(r.text, 'html.parser')
+
+#частота появи слів
+
+testo = page.body.text
+
+frasi = re.findall("[А-Я].*?[\.!?]", testo, re.MULTILINE | re.DOTALL)
+
+print("Скільки разів повторюються слова у реченнях веб-сторінки:")
+cnt2 = Counter()
+for n, s in enumerate(frasi):
+    words = re.findall("\w+", s)
+    wordfound = []
+    for word in words:
+        try:
+            if word in frasi[n + 1]:
+                wordfound.append(word)
+                if wordfound.count(word) < 2:
+                    cnt2[word] += 1
+        except IndexError:
+            pass
+for k, v in cnt2.items():
+    print(k, v)
+
+#кількість зображень на сторінці
+
+count = 0
+for img in page.findAll():
+
+        if(img.name == 'img'):
+           count = count+1
+
+print("Зображення: ", count)
+
+#кількість посилань на сторінці
+
+count1 = 0
+
+for link in page.find_all('a', href=True):
+
+    count1 = count1+1
+
+print("Посилання: ", count1)
