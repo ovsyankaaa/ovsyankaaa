@@ -1,0 +1,84 @@
+class ДомашняБібліотека():
+    def __init__(self, author, year, genre):
+        self.author=author
+        self.year=year
+        self.genre=genre
+authors=['Стивен Кинг', 'Джоан Роулинг', 'Уильям Шекспир', 'Алексей Толстой']
+years=[1986, 2020, 1603, 1936]
+genres=['ужасы', 'фэнтези', 'трагедия', 'сказка']
+names=['Оно', 'Икабог', 'Гамлет', 'Буратино']
+#список книг
+ono=names[0],authors[0], years[0], genres[0]
+ika=names[1],authors[1], years[1], genres[1]
+gam=names[2],authors[2], years[2], genres[2]
+bur=names[3],authors[3], years[3], genres[3]
+while True:
+    p = int(input("1 - добавить автора, 2 - добавить год, 3 - добавить жанр, 4 - добавить книгу, 5 - удалить автора, 6 - удалить год, 7 - удалить жанр, 8 - удалить книгу,9 - вывести весь список книг, 10 - закончить изменения"))
+    if p==1:
+        a=str(input())    
+        authors.append(a) 
+        print(authors)
+    elif p==2:
+        y=int(input())
+        years.append(y)
+        print(years)
+    elif p==3:
+        g=str(input())
+        genres.append(g)
+        print(genres)
+    elif p==4:
+        n=str(input())
+        names.append(n)
+        print(names)
+    elif p==5:
+        adel=str(input(' '))
+        if adel in authors:
+            authors.remove(adel)
+            print(authors)
+        else:
+            print("Попробуйте еще раз, такого автора нет в списке")
+    elif p==6:
+        ydel=int(input())
+        if ydel in years:
+            years.remove(ydel)
+            print(years)
+        else:
+            print("Попробуйте еще раз, такого года нет в списке")
+    elif p==7:
+        gdel=str(input())
+        if gdel in genres:
+            genres.remove(gdel)
+            print(genres)
+        else:
+            print("Попробуйте еще раз, такого жанра нет в списке")
+    elif p==8:
+        ndel=str(input())
+        if ndel in names:
+            names.remove(ndel)
+            print(names)
+        else:
+            print("Попробуйте еще раз, такой книги нет в списке")
+    elif p==9:
+        print(ono)
+        print(ika)
+        print(gam)
+        print(bur)
+    elif p==10:
+        break
+    
+#ввод параметра-_-
+choice2=int(input("какой параметр вам нужен для поиска?текст - 1/число - 2?"))
+if choice2==1:
+    v=input("Введите любой текстовой параметр книги, чтобы ее найти")
+elif choice2==2:
+    v=int(input())
+if v in ono:
+    print(ono)
+elif v in ika:
+    print(ika)
+elif  v in gam:
+    print(gam)
+elif  v in bur:
+    print(bur)
+else:
+    print("такой книги нет в нашем списке")
