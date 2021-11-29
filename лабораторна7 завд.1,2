@@ -1,0 +1,28 @@
+#1 завдання (№17)
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+fig, ax = plt.subplots()
+x = np.linspace(0,  4, 100)
+y = 10*np.cos(x**2)/x**2
+ax.plot(x, y, 'r')
+plt.show()
+plt.savefig('lol.png', dpi=200)
+
+#2 завдання
+
+ok="Як показало нове дослідження, геомагнітні збурення погіршують здатність китів орієнтуватися в морях і заводять їх на мілководдя.Безуспішно намагаючись вибратися з пастки, дезорієнтовані кити гинули на узбережжях Європи.Результати цього дослідження нещодавно опублікували в Міжнародному журналі астробіології (International Journal of Astrobiology)."
+def create_dictionary2(txt):
+    dictionary = {}
+    i=0
+    for x in set(txt):
+        dictionary[x] = txt.count(x)/len(txt) 
+    return dictionary
+    
+import numpy as np
+import matplotlib.pyplot as plt
+test_dict = create_dictionary2(ok)
+plt.bar(test_dict.keys(), test_dict.values(), width=0.5, color='r' )
+plt.show()
+plt.savefig('ok.png', dpi=200)
