@@ -1,0 +1,66 @@
+import csv
+import sys
+
+group=int(input("oберіть спеціальність студентів : 1 - комп. науки, 2 - кібербезпека"))
+if group==1:
+    choice=int(input("оберіть дію з файлом: прочитати файл 1, запис у файли 2, дозапис у файли 3, пошук файлів у каталозі 4, пошук даних у файлі 5"))
+    if choice == 1 :
+        file = open('students.txt', encoding = 'utf-8')
+        print(file.read())
+        file.close()
+    elif choice == 2:
+        new = (input("введіть нові імена студентів та їх бали"))
+        file = open('students.txt', 'w', encoding = 'utf-8')
+        file.write(new)
+        file.close()
+    elif choice == 3:
+        mark = input("введіть бал зно")
+        addst = input("піб кого додати")
+        file = open('students.txt', 'a', encoding = 'utf-8')
+        file.write('\n' +mark+ " " +addst)
+        file.close()
+    elif choice == 4:
+        file = open('students.txt', 'r', encoding = 'utf-8')
+        find = input('введіть що хочете знайти')
+        read = file.read()
+        file.close()
+        if find in read:
+            print("Знайденоооооо!")
+        else:
+            print('не знайденоооо!')
+    elif choice == 5:
+        file = open('students.txt', encoding = 'utf-8')
+    for t in sorted(file):
+        print(t, end=' ')
+else:
+    choice=int(input("оберіть дію з файлом: прочитати файл 1, запис у файли 2, дозапис у файли 3, пошук файлів у каталозі 4, пошук даних у файлі 5"))
+    if choice == 1 :
+        file = open('students2.txt', encoding = 'utf-8')
+        print(file.read())
+        file.close()
+    elif choice == 2:
+        new = (input("введіть нові імена студентів та їх бали"))
+        file = open('students2.txt', 'w', encoding = 'utf-8')
+        file.write(new)
+        file.close()
+    elif choice == 3:
+        mark = input("введіть бал зно")
+        addst = input("піб кого додати")
+        file = open('students2.txt', 'a', encoding = 'utf-8')
+        file.write('\n' +mark+ " " +addst)
+        file.close()
+    elif choice == 4:
+        file = open('students2.txt', 'r', encoding = 'utf-8')
+        find = input('введіть що хочете знайти')
+        read = file.read()
+        file.close()
+        
+        if find in read:
+            print("Знайденоооооо!")
+        else:
+            print('не знайденоооо!')
+    elif choice == 5:
+        file = open('students2.txt', encoding = 'utf-8')
+    for t in sorted(file):
+        print(t, end=' ')
+        
