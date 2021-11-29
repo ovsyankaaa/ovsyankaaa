@@ -1,0 +1,35 @@
+import sys
+import csv
+
+#завд1
+
+from random import choice
+a = ["Привет", "До встречи", 'Извини' "Пока"]
+b = ["абсолютный", "адский", "азартный", 'активный', 'ангельский', 'антагонистический', 'арктический', 'безграничный', 'бездушный']
+c = ['Даниил', 'Максим', 'Владислав', 'Никита', 'Артем', 'Иван', 'Кирилл', 'Егор', 'Илья', 'Андрей', 'Алексей', 'Богдан', 'Денис', 'Дмитрий', 'Ярослав']
+print(choice(a), choice(b), choice(c)) 
+
+#завд2
+
+lines = 0
+words = 0
+letters = 0
+for line in open('text.txt'):
+    lines += 1
+    letters += len(line)
+
+    pos = 'out'
+    for letter in line:
+        if letter != ' ' and pos == 'out':
+            words += 1
+            pos = 'in'
+        elif letter == ' ':
+            pos = 'out'
+
+print("количество строк:", lines)
+print("всех слов:", words)
+print("букв:", letters)
+probel = (words-1)
+
+symbols=(letters + probel)
+print('символов:', symbols)
